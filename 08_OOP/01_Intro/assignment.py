@@ -5,8 +5,9 @@ class RightTriangle:
  
     
     def area(self):
-        return (1/2 * self.base) * self.height
+        return 1/2 * self.base * self.height
     
+
         
 triangle_1 = RightTriangle(3, 4)
 print("The area of triange_1 is", triangle_1.area())
