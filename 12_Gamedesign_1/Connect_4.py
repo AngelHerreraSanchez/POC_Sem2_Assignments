@@ -64,22 +64,227 @@ def place_piece(col : int):
         
 
 def check_row():
-    for row in range(3):
-        if grid[row][0].__eq__(grid[row][1]) and grid[row][1].__eq__(grid[row][2]):
+    first_list = [last_col, last_col + 1, last_col + 2, last_col + 3]
+    second_list = [last_col -1, last_col, last_col + 1, last_col + 2]
+    third_list = [last_col - 2, last_col - 1, last_col, last_col + 1]
+    fourth_list = [last_col - 3, last_col - 2, last_col - 1, last_col]
+    if(first_list[0] >= 0 and first_list[0] < 7 and first_list[3] >= 0 and first_list[3] < 7):
+        one = grid[last_row][first_list[0]]
+        two = grid[last_row][first_list[1]]
+        three = grid[last_row][first_list[2]]
+        four = grid[last_row][first_list[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+            return True
+    if (second_list[0] >= 0 and second_list[0] < 7 and second_list[3] >= 0 and second_list[3] < 7):
+        one = grid[last_row][second_list[0]]
+        two = grid[last_row][second_list[1]]
+        three = grid[last_row][second_list[2]]
+        four = grid[last_row][second_list[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+            return True
+    if (third_list[0] >= 0 and third_list[0] < 7 and third_list[3] >= 0 and third_list[3] < 7):
+        one = grid[last_row][third_list[0]]
+        two = grid[last_row][third_list[1]]
+        three = grid[last_row][third_list[2]]
+        four = grid[last_row][third_list[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+            return True
+    if (fourth_list[0] >= 0 and fourth_list[0] < 7 and fourth_list[3] >= 0 and fourth_list[3] < 7):
+        one = grid[last_row][fourth_list[0]]
+        two = grid[last_row][fourth_list[1]]
+        three = grid[last_row][fourth_list[2]]
+        four = grid[last_row][fourth_list[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
             return True
     return False
 
 def check_col():
-    for col in range(3):
-        if grid[0][col].__eq__(grid[1][col]) and grid[1][col].__eq__(grid[2][col]):
+    first_list = [last_row, last_row + 1, last_row + 2, last_row + 3]
+    second_list = [last_row - 1, last_row, last_row + 1, last_row + 2] 
+    third_list = [last_row - 2, last_row - 1, last_row, last_row + 1]
+    fourth_list = [last_row - 3, last_row - 2, last_row - 1, last_row]
+    if(first_list[0] >= 0 and first_list[0] < 6 and first_list[3] >= 0 and first_list[3] < 6):
+        one = grid[first_list][last_col[0]]
+        two = grid[first_list][last_col[1]]
+        three = grid[first_list][last_col[2]]
+        four = grid[first_list][last_col[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+            return True
+    if(second_list[0] >= 0 and second_list[0] < 6 and second_list[3] >= 0 and second_list[3] < 6):
+        one = grid[second_list][last_col[0]]
+        two = grid[second_list][last_col[1]]
+        three = grid[second_list][last_col[2]]
+        four = grid[second_list][last_col[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+            return True
+    if(third_list[0] >= 0 and third_list[0] < 6 and third_list[3] >= 0 and third_list[3] < 6):
+        one = grid[third_list][last_col[0]]
+        two = grid[third_list][last_col[1]]
+        three = grid[third_list][last_col[2]]
+        four = grid[third_list][last_col[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+            return True
+    if(fourth_list[0] >= 0 and fourth_list[0] < 6 and fourth_list[3] >= 0 and fourth_list[3] < 6):
+        one = grid[fourth_list][last_col[0]]
+        two = grid[fourth_list][last_col[1]]
+        three = grid[fourth_list][last_col[2]]
+        four = grid[fourth_list][last_col[3]]
+        if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
             return True
     return False
+             
 
 def check_left_diag():
-    return grid[0][0].__eq__(grid[1][1]) and grid[1][1].__eq__(grid[2][2])
+    first_listrow = [last_col, last_col + 1, last_col + 2, last_col + 3]
+    second_listrow = [last_col -1, last_col, last_col + 1, last_col + 2]
+    third_listrow = [last_col - 2, last_col - 1, last_col, last_col + 1]
+    fourth_listrow = [last_col - 3, last_col - 2, last_col - 1, last_col]
+
+    first_listcol = [last_row, last_row + 1, last_row + 2, last_row + 3]
+    second_listcol = [last_row - 1, last_row, last_row + 1, last_row + 2]
+    third_listcol = [last_row - 2, last_row - 1, last_row, last_row + 1]
+    fourth_listcol = [last_row - 3, last_row - 2, last_row - 1, last_row]
+    if(first_listcol[0] >= 0 and first_listcol[0] < 7 and first_listcol[3] >= 0 and first_listcol[3] < 7):
+        if(first_listcol[0]):
+            one = grid[first_listcol][last_col[0]]
+            two = grid[first_listcol][last_col[1]]
+            three = grid[first_listcol][last_col[2]]
+            four = grid[first_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(second_listcol[0] >= 0 and second_listcol[0] < 7 and second_listcol[3] >= 0 and second_listcol[3] < 7):
+        if(second_listcol[0]):
+            one = grid[second_listcol][last_col[0]]
+            two = grid[second_listcol][last_col[1]]
+            three = grid[second_listcol][last_col[2]]
+            four = grid[second_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(third_listcol[0] >= 0 and third_listcol[0] < 7 and third_listcol[3] >= 0 and third_listcol[3] < 7):
+        if(third_listcol[0]):
+            one = grid[third_listcol][last_col[0]]
+            two = grid[third_listcol][last_col[1]]
+            three = grid[third_listcol][last_col[2]]
+            four = grid[third_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(fourth_listcol[0] >= 0 and fourth_listcol[0] < 7 and fourth_listcol[3] >= 0 and fourth_listcol[3] < 7):
+        if(fourth_listcol[0]):
+            one = grid[fourth_listcol][last_col[0]]
+            two = grid[fourth_listcol][last_col[1]]
+            three = grid[fourth_listcol][last_col[2]]
+            four = grid[fourth_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(first_listrow[0] >= 0 and first_listrow[0] < 7 and first_listrow[3] >= 0 and first_listrow[3] < 7):
+        if(first_listrow[0]):
+            one = grid[first_listrow][last_col[0]]
+            two = grid[first_listrow][last_col[1]]
+            three = grid[first_listrow][last_col[2]]
+            four = grid[first_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(second_listrow[0] >= 0 and second_listrow[0] < 7 and second_listrow[3] >= 0 and second_listrow[3] < 7):
+        if(second_listrow[0]):
+            one = grid[second_listrow][last_col[0]]
+            two = grid[second_listrow][last_col[1]]
+            three = grid[second_listrow][last_col[2]]
+            four = grid[second_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(third_listrow[0] >= 0 and third_listrow[0] < 7 and third_listrow[3] >= 0 and third_listrow[3] < 7):
+        if(third_listrow[0]):
+            one = grid[third_listrow][last_col[0]]
+            two = grid[third_listrow][last_col[1]]
+            three = grid[third_listrow][last_col[2]]
+            four = grid[third_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(fourth_listrow[0] >= 0 and fourth_listrow[0] < 7 and fourth_listrow[3] >= 0 and fourth_listrow[3] < 7):
+        if(fourth_listrow[0]):
+            one = grid[fourth_listrow][last_col[0]]
+            two = grid[fourth_listrow][last_col[1]]
+            three = grid[fourth_listrow][last_col[2]]
+            four = grid[fourth_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    
+    
 
 def check_right_diag():
-    return grid[0][2].__eq__(grid[1][1]) and grid[1][1].__eq__(grid[2][0])
+    first_listrow = [last_col, last_col + 1, last_col + 2, last_col + 3]
+    second_listrow = [last_col -1, last_col, last_col + 1, last_col + 2]
+    third_listrow = [last_col - 2, last_col - 1, last_col, last_col + 1]
+    fourth_listrow = [last_col - 3, last_col - 2, last_col - 1, last_col]
+
+    first_listcol = [last_row, last_row + 1, last_row + 2, last_row + 3]
+    second_listcol = [last_row - 1, last_row, last_row + 1, last_row + 2]
+    third_listcol = [last_row - 2, last_row - 1, last_row, last_row + 1]
+    fourth_listcol = [last_row - 3, last_row - 2, last_row - 1, last_row]
+    if(first_listcol[0] >= 0 and first_listcol[0] < 7 and first_listcol[3] >= 0 and first_listcol[3] < 7):
+        if(first_listcol[0]):
+            one = grid[first_listcol][last_col[0]]
+            two = grid[first_listcol][last_col[1]]
+            three = grid[first_listcol][last_col[2]]
+            four = grid[first_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(second_listcol[0] >= 0 and second_listcol[0] < 7 and second_listcol[3] >= 0 and second_listcol[3] < 7):
+        if(second_listcol[0]):
+            one = grid[second_listcol][last_col[0]]
+            two = grid[second_listcol][last_col[1]]
+            three = grid[second_listcol][last_col[2]]
+            four = grid[second_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(third_listcol[0] >= 0 and third_listcol[0] < 7 and third_listcol[3] >= 0 and third_listcol[3] < 7):
+        if(third_listcol[0]):
+            one = grid[third_listcol][last_col[0]]
+            two = grid[third_listcol][last_col[1]]
+            three = grid[third_listcol][last_col[2]]
+            four = grid[third_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(fourth_listcol[0] >= 0 and fourth_listcol[0] < 7 and fourth_listcol[3] >= 0 and fourth_listcol[3] < 7):
+        if(fourth_listcol[0]):
+            one = grid[fourth_listcol][last_col[0]]
+            two = grid[fourth_listcol][last_col[1]]
+            three = grid[fourth_listcol][last_col[2]]
+            four = grid[fourth_listcol][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(first_listrow[0] >= 0 and first_listrow[0] < 7 and first_listrow[3] >= 0 and first_listrow[3] < 7):
+        if(first_listrow[0]):
+            one = grid[first_listrow][last_col[0]]
+            two = grid[first_listrow][last_col[1]]
+            three = grid[first_listrow][last_col[2]]
+            four = grid[first_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(second_listrow[0] >= 0 and second_listrow[0] < 7 and second_listrow[3] >= 0 and second_listrow[3] < 7):
+        if(second_listrow[0]):
+            one = grid[second_listrow][last_col[0]]
+            two = grid[second_listrow][last_col[1]]
+            three = grid[second_listrow][last_col[2]]
+            four = grid[second_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(third_listrow[0] >= 0 and third_listrow[0] < 7 and third_listrow[3] >= 0 and third_listrow[3] < 7):
+        if(third_listrow[0]):
+            one = grid[third_listrow][last_col[0]]
+            two = grid[third_listrow][last_col[1]]
+            three = grid[third_listrow][last_col[2]]
+            four = grid[third_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
+    if(fourth_listrow[0] >= 0 and fourth_listrow[0] < 7 and fourth_listrow[3] >= 0 and fourth_listrow[3] < 7):
+        if(fourth_listrow[0]):
+            one = grid[fourth_listrow][last_col[0]]
+            two = grid[fourth_listrow][last_col[1]]
+            three = grid[fourth_listrow][last_col[2]]
+            four = grid[fourth_listrow][last_col[3]]
+            if one.__eq__(two) and two.__eq__(three) and three.__eq__(four):
+                return True
 
 def check_draw():
     return remaining_spots == 0     
@@ -116,9 +321,9 @@ def game_loop():
             break
         column = int(user_choice)
         place_piece(column)
-        #if(check_game_over()):
-        #    print_grid()
-        #   break          
+        if(check_game_over()):
+           print_grid()
+           break          
         current_piece = "Y" if current_piece.__eq__("R") else "R"
         user_choice = ""
     print("GAME OVER")
